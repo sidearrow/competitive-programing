@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class Aoj0001
+class Main
 {
     public static void main (String[] args) throws IOException
     {

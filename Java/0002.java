@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Aoj0002
+class Main
 {
     public static void main(String[] args)
     {
