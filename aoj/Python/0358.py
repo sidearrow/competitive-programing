@@ -1,2 +1,7 @@
 a,b,c = map(int, input().split(' '))
-print("NA" if a + b < c else c - a)
+if a + b < c:
+  print('NA')
+else a >= c:
+  print(0)
+else:
+  print(c - a)
