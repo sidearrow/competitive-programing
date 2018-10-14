@@ -31,6 +31,7 @@ RUN apt-get install -y \
       php-fpm \
       php-json \
       php-mbstring \
+      php-mysql \
       php-xml \
       php-zip || \
     apt-get install -y --fix-missing \
@@ -38,6 +39,7 @@ RUN apt-get install -y \
       php-fpm \
       php-json \
       php-mbstring \
+      php-mysql \
       php-xml \
       php-zip
 

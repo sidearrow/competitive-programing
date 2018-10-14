@@ -18,3 +18,5 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - ./db:/var/lib/mysql
