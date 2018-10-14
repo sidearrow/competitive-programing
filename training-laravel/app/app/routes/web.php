@@ -18,6 +18,11 @@ Route::get('/', function () {
 Route::get('/phpinfo', function () {
     phpinfo();
 });
+
+Route::get('/article/new', function () {
+    return view('article/new');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
