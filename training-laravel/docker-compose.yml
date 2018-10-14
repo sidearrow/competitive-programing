@@ -7,4 +7,14 @@ services:
     volumes:
       - ./app:/var/www
       - ./nginx:/etc/nginx/conf.d
-    tty: true
+    links:
+      - db
+    depends_on:
+      - db
+    command: bash -c "service php7.2-fpm start && nginx -g \"daemon off;\""
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
