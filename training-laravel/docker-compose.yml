@@ -1,0 +1,10 @@
+version: '2'
+services:
+  app:
+    build: app
+    ports:
+      - 80:80
+    volumes:
+      - ./app:/var/www
+      - ./nginx:/etc/nginx/conf.d
+    tty: true
