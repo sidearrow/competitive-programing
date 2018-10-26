@@ -5,7 +5,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./app:/var/www
+      - ./app/app:/var/www
       - ./nginx:/etc/nginx/conf.d
     links:
       - db
@@ -19,4 +19,4 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: secret
     volumes:
-      - ./db:/var/lib/mysql
+      - ./database:/var/lib/mysql
