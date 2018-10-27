@@ -37,11 +37,18 @@ function getPDO()
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
     );
+
     $pdo->query("SET SESSION sql_mode='TRADITIONAL,NO_AUTO_VALUE_ON_ZERO,ONLY_FULL_GROUP_BY'");
     return $pdo;
 }
 
-$app = new \Slim\App();
+$config = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ]
+];
+
+$app = new \Slim\App($config);
 
 $container = $app->getContainer();
 
