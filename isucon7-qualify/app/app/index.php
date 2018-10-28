@@ -63,6 +63,13 @@ $container['view'] = function ($container) {
     return $view;
 };
 
+$container['logger'] = function ($container) {
+    $logger = new \Monolog\Logger('my_logger');
+    $file_handler = new \Monolog\Handler\StreamHandler(realpath(__DIR__) . '/log/app.log');
+    $logger->pushHandler($file_handler);
+    return $logger;
+};
+
 $app->get('/initialize', function (Request $request, Response $response) {
     $dbh = getPDO();
     $dbh->query("DELETE FROM user WHERE id > 1000");
