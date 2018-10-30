@@ -37,9 +37,9 @@
     <div class="container-fluid">
       <div class="row">
         <nav class="col-sm-3 col-md-3 hidden-xs-down bg-faded sidebar">
-          <?php if (isset($user)) : ?>
+          <?php //if (isset($user)) : ?>
           <ul class="nav nav-pills flex-column">
-            @foreach ($channels as $channel)
+            <?php foreach ($channels as $channel) : ?>
             <li class="nav-item">
               <a class="nav-link justify-content-between <?php if ($channel_id == $channel['id']) echo 'active' ?>"
                  href="/channel/<?= $channel['id'] ?>">
@@ -47,9 +47,9 @@
                 <span class="badge badge-pill badge-primary float-right" id="unread-<?= $channel['id'] ?>"></span>
               </a>
             </li>
-            @endforeach
+            <?php endforeach; ?>
           </ul>
-          <?php endif; ?>
+          <?php //endif; ?>
         </nav>
         <main class="col-sm-9 offset-sm-3 col-md-9 offset-md-3 pt-3">
           @yield('content')

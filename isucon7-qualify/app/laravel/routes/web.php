@@ -2,10 +2,17 @@
 use Illuminate\Http\Request;
 
 Route::get('/', function (Request $request) {
-    Log::info('cookie', ['test' => $request]);
-
     if ($request->cookie('user_id')) {
-        return response()->json(['aa'], 303);
+        return redirect()->route('channel', ['channel_id' => '1'], 303);
     }
     return view('index');
 });
+
+Route::get('/channel/{channel_id}', function (Request $request, $channelId) {
+    list($channels, $description) = App\Models\Channel::getChannelListInfo($channelId);
+    return view('channel', [
+        'channels' => $channels,
+        'channel_id' => $channelId,
+        'description' => $description
+    ]);
+})->name('channel');
