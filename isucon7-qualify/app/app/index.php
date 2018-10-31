@@ -137,6 +137,7 @@ function register($dbh, $userName, $password)
     return $stmt->fetch()['last_insert_id'];
 }
 
+// done
 $app->get('/', function (Request $request, Response $response) {
     if (FigRequestCookies::get($request, 'user_id')->getValue()) {
         return $response->withRedirect('/channel/1', 303);
@@ -144,6 +145,7 @@ $app->get('/', function (Request $request, Response $response) {
     return $this->view->render($response, 'index.twig', []);
 });
 
+//done
 function get_channel_list_info($focusedChannelId = null)
 {
     $stmt = getPDO()->query("SELECT * FROM channel ORDER BY id");
@@ -159,6 +161,7 @@ function get_channel_list_info($focusedChannelId = null)
     return [$channels, $description];
 }
 
+// done
 $app->get('/channel/{channel_id}', function (Request $request, Response $response) {
     $channelId = $request->getAttribute('channel_id');
     list($channels, $description) = get_channel_list_info($channelId);
@@ -173,6 +176,7 @@ $app->get('/channel/{channel_id}', function (Request $request, Response $respons
     );
 })->add($loginRequired);
 
+// done
 $app->get('/register', function (Request $request, Response $response) {
     return $this->view->render($response, 'register.twig', []);
 });

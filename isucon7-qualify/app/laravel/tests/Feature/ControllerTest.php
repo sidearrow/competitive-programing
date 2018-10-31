@@ -6,6 +6,7 @@ use Tests\TestCase;
 
 class IndexTest extends TestCase
 {
+    /*
     public function testIndexNotSetCookie()
     {
         $response = $this->get('/');
@@ -15,6 +16,19 @@ class IndexTest extends TestCase
     public function testIndexSetCookie()
     {
         $response = $this->call('GET', '/', [], ['user_id' => 'test']);
+        $response->assertStatus(303);
+    }
+    */
+
+    public function testRegister()
+    {
+        $response = $this->call('GET', '/register');
+        $response->assertStatus(200);
+
+        $response = $this->call('POST', '/register');
+        $response->assertStatus(400);
+
+        $response = $this->call('POST', '/register?name=name&password=password');
         $response->assertStatus(303);
     }
 }

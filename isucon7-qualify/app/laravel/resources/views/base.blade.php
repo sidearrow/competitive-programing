@@ -37,7 +37,7 @@
     <div class="container-fluid">
       <div class="row">
         <nav class="col-sm-3 col-md-3 hidden-xs-down bg-faded sidebar">
-          <?php //if (isset($user)) : ?>
+          <?php if (isset($channels)) : ?>
           <ul class="nav nav-pills flex-column">
             <?php foreach ($channels as $channel) : ?>
             <li class="nav-item">
@@ -49,7 +49,7 @@
             </li>
             <?php endforeach; ?>
           </ul>
-          <?php //endif; ?>
+          <?php endif; ?>
         </nav>
         <main class="col-sm-9 offset-sm-3 col-md-9 offset-md-3 pt-3">
           @yield('content')
