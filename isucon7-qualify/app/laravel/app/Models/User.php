@@ -22,13 +22,24 @@ class User
         $salt = $this->randomString(20);
         $passDigest = sha1(utf8_encode($salt . $password));
 
-        return DB::table($this->table)->insertGetId([
-            'name'         => $userName,
-            'salt'         => $salt,
-            'password'     => $passDigest,
-            'display_name' => $userName,
-            'avatar_icon'  => 'default.png',
-            'created_at'   => now(),
-        ]);
+        try {
+            $userId = DB::table($this->table)->insertGetId([
+                'name'         => $userName,
+                'salt'         => $salt,
+                'password'     => $passDigest,
+                'display_name' => $userName,
+                'avatar_icon'  => 'default.png',
+                'created_at'   => now(),
+            ]);
+        } catch (\PDOException $e) {
+            $userId = null;
+        }
+
+        return $userId;
+    }
+
+    public function getUser($name)
+    {
+        return DB::table($this->table)->where('name', $name)->first();
     }
 }

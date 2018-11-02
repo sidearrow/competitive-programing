@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\User;
 
 class RegisterController extends Controller
 {
@@ -16,6 +17,12 @@ class RegisterController extends Controller
         if (!$name || !$password) {
             return response('', 400);
         }
+        $modelUser = new User();
+        $userId = $modelUser->store($name, $password);
+        if ($userId === null) {
+            return response('', 409);
+        }
+        response()->cookie('user_id', $userId);
         return redirect()->route('index', [], 303);
     }
 }
