@@ -20,7 +20,7 @@ class IndexTest extends TestCase
     }
     */
 
-    public function testRegister()
+    public function _testRegister()
     {
         $response = $this->call('GET', '/register');
         $response->assertStatus(200);
@@ -30,5 +30,14 @@ class IndexTest extends TestCase
 
         $response = $this->call('POST', '/register?name=name&password=password');
         $response->assertStatus(303);
+    }
+
+    public function testLogout()
+    {
+        $response = $this->get('/logout');
+        $response
+            ->assertStatus(303)
+            ->assertRedirect('/')
+            ->assertCookie('user_id', '0');
     }
 }

@@ -10,3 +10,5 @@ Route::post('/register', 'RegisterController@post');
 
 Route::get('/login', 'LoginController@get');
 Route::post('/login', 'LoginController@post');
+
+Route::get('/logout', 'LogoutController@get');
