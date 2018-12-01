@@ -1,6 +1,11 @@
 <?php
+$data = 'hello PHP !!';
+if (isset($urlPath[1])) {
+    $data = $urlPath[1];
+}
+
 $str = [
-    'data' => 'hello PHP'
+    'data' => $data
 ];
 
 header('Content-Type: application/json; charset=utf-8');
