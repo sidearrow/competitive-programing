@@ -1,0 +1,1 @@
+pandoc sample.md -s --mathjax -t html5 -c style/style.css -o sample.html
