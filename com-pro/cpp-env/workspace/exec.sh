@@ -1,2 +1,2 @@
 #!/bin/bash
-g++ -O2 -o a.out main.cpp
+./a.out < in
