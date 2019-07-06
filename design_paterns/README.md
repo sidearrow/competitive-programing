@@ -1,5 +1,0 @@
-# DesignPatterns
-
-|||
-|---|---|
-| Iterator | OK |
