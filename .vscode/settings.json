@@ -1,3 +1,4 @@
 {
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Attach, SpaceBeforeParens: ControlStatements, IndentWidth: 4 }"
 }

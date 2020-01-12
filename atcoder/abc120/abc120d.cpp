@@ -1,16 +1,14 @@
+#include <iostream>
 #include <stdio.h>
 #include <vector>
-#include <iostream>
 
 using namespace std;
 
 class UnionFind {
-    public:
-        vector<int> parent;
+  public:
+    vector<int> parent;
 
-    UnionFind(int i) {
-        parent = vector<int>(i, -1);
-    }
+    UnionFind(int i) { parent = vector<int>(i, -1); }
 
     int find(int i) {
         if (parent[i] < 0) {
@@ -19,9 +17,7 @@ class UnionFind {
         return parent[i];
     }
 
-    int size(int i) {
-        return -parent[find(i)];
-    }
+    int size(int i) { return -parent[find(i)]; }
 
     void unite(int a, int b) {
         a = find(a);
@@ -48,12 +44,13 @@ int main() {
         scanf("%d %d", &a[i], &b[i]);
     }
 
-    ans[M-1] = (long long)N * (N-1) / 2;
-    for (int i = M-1; i > 0; i--) {
-        ans[i-1] = ans[i];
-        if (uf.find(a[i]-1) != uf.find(b[i]-1)) {
-            ans[i-1] = ans[i] - (long long)uf.size(a[i]-1) * uf.size(b[i]-1);
-            uf.unite(a[i]-1, b[i]-1);
+    ans[M - 1] = (long long)N * (N - 1) / 2;
+    for (int i = M - 1; i > 0; i--) {
+        ans[i - 1] = ans[i];
+        if (uf.find(a[i] - 1) != uf.find(b[i] - 1)) {
+            ans[i - 1] =
+                ans[i] - (long long)uf.size(a[i] - 1) * uf.size(b[i] - 1);
+            uf.unite(a[i] - 1, b[i] - 1);
         }
     }
 

@@ -19,10 +19,7 @@ int main() {
             continue;
         }
 
-        if (
-            (a < b && b < c)
-            || (a > b && b > c)
-        ) {
+        if ((a < b && b < c) || (a > b && b > c)) {
             res++;
         }
     }

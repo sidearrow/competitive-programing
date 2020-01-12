@@ -16,8 +16,10 @@ int main() {
         mx = max(now, mx);
     }
     if (res) {
-        cout << "Yes" << "\n";
+        cout << "Yes"
+             << "\n";
     } else {
-        cout << "No" << "\n";
+        cout << "No"
+             << "\n";
     }
 }

@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include <iostream>
-#include <string>
 #include <map>
+#include <stdio.h>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +12,7 @@ int main() {
 
     int l = S.length();
 
-    map<char, pair<int, int> > m;
+    map<char, pair<int, int>> m;
     m.insert(make_pair('a', make_pair(-1, -1)));
     m.insert(make_pair('b', make_pair(-1, -1)));
     m.insert(make_pair('c', make_pair(-1, -1)));

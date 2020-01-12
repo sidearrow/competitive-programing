@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
+#include <stdio.h>
 #include <string>
+#include <vector>
 
 int main() {
     int a, b, c, d, e, k;
