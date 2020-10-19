@@ -1,5 +1,5 @@
-build-cpp:
-	g++ -O2 -o a.out $1
-
-exec-cpp:
-	./a.out < in
+start-python-container:
+	docker run -itd \
+		--name compro-python \
+		--volume ${PWD}/codes:/codes \
+		python:3.8.2-slim-buster /bin/sh
