@@ -2,7 +2,6 @@ N = int(input())
 S = input()
 
 l = 0
-r = 0
 ans = ""
 for s in S:
     if s == "(":
@@ -10,7 +9,7 @@ for s in S:
         ans += "("
         continue
     if l > 0:
-        ans += "()"
+        ans += ")"
         l -= 1
     else:
         ans = "(" + ans + ")"
