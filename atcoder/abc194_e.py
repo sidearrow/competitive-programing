@@ -1,19 +1,23 @@
-import sys
+split_int_input = lambda: [int(v) for v in input().split()]
+N, M = split_int_input()
+A = split_int_input()
 
-input = sys.stdin.readline
+cnt = [0] * (max(A) + 2)
+for i in range(M):
+    cnt[A[i]] += 1
 
-N, M = [int(v) for v in input().split()]
-A = [int(v) for v in input().split()]
+ans = 0
+for i, c in enumerate(cnt):
+    if c == 0:
+        ans = i
+        break
 
-res = None
-for i in range(N - M + 1):
-    tmp = A[i : i + M]
-    _res = min(tmp) - 1
-    if _res < 0:
-        _res = max(A[0:M]) + 1
-    if res is None:
-        res = _res
-    else:
-        res = min(res, _res)
+for i in range(N - M):
+    l = A[i]
+    r = A[i + M]
+    cnt[l] -= 1
+    cnt[r] += 1
+    if cnt[l] == 0:
+        ans = min(ans, l)
 
-print(res)
+print(ans)
