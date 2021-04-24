@@ -1,7 +1,9 @@
 競技プログラミングを頑張るリポジトリ
 
-## AOJ まとめ
-
-- 素数判定： `alds1_1_c`
-- Union Find： `dsl_1_a`
-- 単一始点最短経路問題 - ダイクストラ： `alds1_12_c`
+- 素数判定
+  - AOJ:ALDS1_1_C`
+- Union Find
+  - AOJ:DSL_1_A
+- 単一始点最短経路問題 - ダイクストラ
+  - AOJ:ALDS1_12_C
+  - AtCoder:ABC192_E
