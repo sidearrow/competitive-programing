@@ -11,7 +11,6 @@ for _ in range(EL):
 ans = [10 ** 15] * VL
 ans[R] = 0
 hq = [[0, R]]
-seen = [False] * VL
 
 while len(hq) > 0:
     d, v = heappop(hq)
