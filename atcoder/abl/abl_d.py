@@ -27,3 +27,19 @@ class SegmentTree:
             l //= 2
             r //= 2
         return self.func(vl, vr)
+
+
+split_int_input = lambda: [int(v) for v in input().split()]
+N, K = split_int_input()
+A = [int(input()) for _ in range(N)]
+
+f = lambda a, b: max(a, b)
+st = SegmentTree(300001, f, 0)
+for a in A:
+    l = max(0, a - K)
+    r = min(a + K, 300000) + 1
+    tmp = st.get(l, r) + 1
+    st.set(a, tmp)
+
+ans = st.get(0, 300001)
+print(ans)

@@ -32,3 +32,10 @@ def comb(n, r, mod):
     for i in range(r):
         res = res * (n - i) * pow(i + 1, mod - 2, mod) % mod
     return res
+
+
+def comb(n, k):
+    res = 1
+    for i in range(k):
+        res = res * (n - i) // (i + 1)
+    return res
