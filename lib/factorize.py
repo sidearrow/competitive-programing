@@ -1,4 +1,3 @@
-# 約数列挙
 def factorize(n):
     res = []
     for i in range(1, int(n ** 0.5) + 1):
@@ -8,7 +7,3 @@ def factorize(n):
             if i != j:
                 res.append(j)
     return res
-
-
-N = int(input())
-print(*sorted(factorize(N)), sep="\n")

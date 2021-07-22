@@ -3,16 +3,17 @@ def prime_facotrize(n):
     while n % 2 == 0:
         res.append(2)
         n //= 2
-    a = 3
-    while a * a <= n:
-        if n % a == 0:
-            res.append(a)
-            n //= a
+    i = 3
+    while i ** 2 <= n:
+        if n % i == 0:
+            res.append(i)
+            n //= i
         else:
-            a += 2
+            i += 2
     if n != 1:
         res.append(n)
     return res
 
 
-print(prime_facotrize(6))
+assert sorted(prime_facotrize(13)) == [13]
+assert sorted(prime_facotrize(2 * 2 * 2 * 3 * 3 * 7)) == [2, 2, 2, 3, 3, 7]
