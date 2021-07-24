@@ -15,5 +15,9 @@ def prime_factorize(n):
     return res
 
 
-assert sorted(prime_factorize(13)) == [13]
-assert sorted(prime_factorize(2 * 2 * 2 * 3 * 3 * 7)) == [2, 2, 2, 3, 3, 7]
+N = int(input())
+i = len(prime_factorize(N))
+if i == 1:
+    print(0)
+else:
+    print(len(bin(i - 1)) - 2)
