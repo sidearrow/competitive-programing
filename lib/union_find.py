@@ -3,24 +3,17 @@ class UnionFind:
         self.par = [-1] * n
         self.size = [1] * n
 
-    def root(self, x):
-        par = self.par[x]
-        if par == -1:
+    def get_root(self, x):
+        if self.par[x] == -1:
             return x
-        self.par[x] = self.root(par)
+        self.par[x] = self.get_root(self.par[x])
         return self.par[x]
 
     def unite(self, x, y):
-        rx = self.root(x)
-        ry = self.root(y)
+        rx, ry = self.get_root(x), self.get_root(y)
         if rx == ry:
             return
         if self.size[ry] > self.size[rx]:
             rx, ry = ry, rx
         self.par[ry] = rx
         self.size[rx] += self.size[ry]
-
-    def is_same(self, x, y):
-        rx = self.root(x)
-        ry = self.root(y)
-        return rx == ry
