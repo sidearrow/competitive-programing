@@ -7,26 +7,25 @@
 class Combination:
     def __init__(self, n, mod):
         self.mod = mod
-        self.fact = [0] * (n + 1)
-        self.finv = [0] * (n + 1)
-        inv = [0] * (n + 1)
-
-        self.fact[0] = self.fact[1] = 1
-        self.finv[0] = self.finv[1] = 1
-        inv[1] = 1
-
-        for i in range(2, n + 1):
-            inv[i] = self.mod - inv[self.mod % i] * (self.mod // i) % self.mod
-            self.fact[i] = self.fact[i - 1] * i % self.mod
-            self.finv[i] = self.finv[i - 1] * inv[i] % self.mod
-        print(self.fact, self.finv, inv)
+        self.fac = [1] * (n + 1)
+        self.inv = [1] * (n + 1)
+        for i in range(1, n + 1):
+            self.fac[i] = self.fac[i - 1] * i % self.mod
+        self.inv[n] = pow(self.fac[n], self.mod - 2, self.mod)
+        for i in range(n - 1, -1, -1):
+            self.inv[i] = self.inv[i + 1] * (i + 1) % self.mod
 
     def get(self, n, r):
-        return self.fact[r] * (self.finv[r] * self.finv[n - r] % self.mod) % self.mod
+        return self.fac[n] * self.inv[n - r] * self.inv[r] % self.mod
+
+
+MOD = 10 ** 9 + 7
+comb = Combination(100, MOD)
+assert comb.get(100, 3) == (100 * 99 * 98) // (3 * 2 * 1)
 
 
 # 前処理なし
-def comb(n, r, mod):
+def _comb(n, r, mod):
     r = min(r, n - r)
     res = 1
     for i in range(r):
@@ -34,7 +33,7 @@ def comb(n, r, mod):
     return res
 
 
-def comb(n, k):
+def _comb(n, k):
     res = 1
     for i in range(k):
         res = res * (n - i) // (i + 1)
