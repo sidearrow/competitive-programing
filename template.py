@@ -1,7 +1,7 @@
 import sys
 
-readline = sys.stdin.readline
-readline_split_int = lambda: [int(v) for v in readline().split()]
+_rl = sys.stdin.readline
+_rl2 = lambda: [int(v) for v in _rl().split()]
 
 compressed = lambda v: {k: i for i, k in enumerate(sorted(set(v)))}
 
