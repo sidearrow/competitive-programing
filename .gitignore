@@ -2,3 +2,7 @@ in
 a.out
 __pycache__
 /tmp
+
+# Added by cargo
+
+/target
