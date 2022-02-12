@@ -1,0 +1,4 @@
+AlignAfterOpenBracket: AlwaysBreak
+AllowShortFunctionsOnASingleLine: None
+BasedOnStyle: Google
+IndentWidth: 2

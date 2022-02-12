@@ -5,5 +5,5 @@ g++ \
   -Wall \
   -Wextra \
   -O2 \
-  -o ./a.out \
+  -o ./out \
   ${1}
